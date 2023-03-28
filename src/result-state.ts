@@ -40,22 +40,3 @@ export class ResultState<T = any, E = any> {
     this._state.next({loading: false, error: null, result: result})
   }
 }
-
-
-const resultState = new ResultState<string>()
-
-resultState.loadingState()
-
-resultState.errorState('an error occurred')
-resultState.successState('successful operation')
-
-
-resultState.state$.subscribe(state => {
-  if (state.loading) {
-    // show charging indicator
-  } else if (state.error) {
-    // show error message
-  } else if (state.result) {
-    // show result
-  }
-})
